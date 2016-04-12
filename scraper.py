@@ -104,7 +104,7 @@ import itertools
 
 for i in itertools.count():
     html = urllib2.urlopen(urls.format(i))
-    soup = BeautifulSoup(html.text, 'lxml')
+    soup = BeautifulSoup(html, 'lxml')
     links = soup.find_all('a', 'download button green CSV')
     next_page = soup.find('table', id='DataSetList').find('tfoot').find_all('a')[-1].text
     for link in links:
